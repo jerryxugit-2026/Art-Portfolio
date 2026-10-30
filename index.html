@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ziyang Xu — Art Portfolio</title>
+<meta name="description" content="Art portfolio of Ziyang Xu: ceramic, mixed media and installation works, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stoneware:#615D56;   /* the wall: raw stoneware body */
+  --stoneware-2:#57534D; /* index band */
+  --saggar:#2B2824;      /* fired fireclay, used for the projection piece */
+  --bisque:#F2EFE9;      /* unglazed porcelain: text */
+  --ash:#DDD8CF;         /* secondary text */
+  --celadon:#B9D3C1;     /* the one glaze accent */
+  --display:'Gloock',Georgia,serif;
+  --body:'Hanken Grotesk',system-ui,sans-serif;
+  --mono:'DM Mono',ui-monospace,monospace;
+  --measure:62ch;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--stoneware);color:var(--bisque);font-family:var(--body);font-size:18px;line-height:1.72}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--celadon);outline-offset:4px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+
+/* ---------- hero: the broken plate ---------- */
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(24px,5vw,72px);padding:clamp(40px,6vw,80px) 0}
+.name{font-family:var(--display);font-weight:400;font-size:clamp(64px,10vw,148px);line-height:.88;letter-spacing:-.01em;margin:0}
+.name span{display:block}
+.kind{font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ash);margin:28px 0 0}
+.hint{font-family:var(--mono);font-size:13px;color:var(--celadon);margin:56px 0 0;min-height:1.6em}
+.hint b{font-weight:500;color:var(--bisque)}
+.plate{width:100%;max-width:640px;justify-self:center;overflow:visible}
+.plate svg{width:100%;height:auto;overflow:visible}
+.shard{cursor:pointer}
+.shard image,.shard .edge{transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .3s}
+.shard .edge{fill:none;stroke:rgba(242,239,233,.28);stroke-width:1}
+.shard image{filter:saturate(.92)}
+.shard:hover image,.shard:focus-visible image,.shard:hover .edge,.shard:focus-visible .edge{transform:translate(var(--hx),var(--hy))}
+.shard:hover image,.shard:focus-visible image{filter:saturate(1.08) brightness(1.06)}
+.shard:hover .edge,.shard:focus-visible .edge{stroke:var(--celadon);stroke-width:2}
+.shard:focus{outline:none}
+@media (prefers-reduced-motion:no-preference){
+  .js .shard{animation:settle 1.5s cubic-bezier(.16,.84,.24,1) both;animation-delay:calc(250ms + var(--d))}
+  @keyframes settle{from{transform:translate(var(--ox),var(--oy)) rotate(var(--rot));opacity:0}
+                    35%{opacity:1}
+                    to{transform:none;opacity:1}}
+}
+.shard{transform-box:fill-box;transform-origin:center}
+
+/* ---------- index ---------- */
+.index{background:var(--stoneware-2)}
+.index ol{list-style:none;margin:0;padding:clamp(36px,5vw,64px) 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 40px}
+.index a{display:block;text-decoration:none;padding:14px 0;border-top:1px solid rgba(242,239,233,.18)}
+.index .t{display:block;font-family:var(--display);font-size:22px;line-height:1.2}
+.index .m{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ash);margin-top:6px}
+.index a:hover .t,.index a:focus-visible .t{color:var(--celadon)}
+
+/* ---------- works ---------- */
+.work{padding:clamp(80px,11vw,150px) 0 0}
+.work-head{margin:0 0 clamp(24px,3vw,40px)}
+.medium{font-family:var(--mono);font-size:14px;letter-spacing:.04em;color:var(--celadon);margin:0 0 14px}
+.work h2{font-family:var(--display);font-weight:400;font-size:clamp(40px,6.2vw,84px);line-height:1;letter-spacing:-.005em;margin:0;max-width:16ch}
+.plate-img{margin:0}
+.plate-img img{width:100%;box-shadow:0 30px 60px -30px rgba(20,18,15,.55)}
+.statement{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,var(--measure));justify-content:end;margin:clamp(28px,4vw,52px) 0 0}
+.statement p{grid-column:2;margin:0;font-size:19px;line-height:1.75}
+figure{margin:0}
+figcaption{font-family:var(--mono);font-size:13px;line-height:1.55;color:var(--ash);margin-top:12px;max-width:52ch}
+
+.dark{background:var(--saggar);margin-top:clamp(80px,11vw,150px);padding-bottom:clamp(64px,8vw,110px);box-shadow:0 0 0 100vmax var(--saggar);clip-path:inset(0 -100vmax)}
+.video{position:relative}
+.video video{width:100%;background:#000}
+.vctl{position:absolute;right:16px;bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:rgba(43,40,36,.75);color:var(--bisque);border:1px solid rgba(242,239,233,.35);padding:8px 14px;cursor:pointer}
+.vctl:hover{border-color:var(--celadon);color:var(--celadon)}
+
+.pair,.duo,.strip3,.trio,.tall-pair{margin-top:clamp(40px,5vw,64px)}
+.pair-row{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;align-items:end}
+.duo{display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:end}
+.trio-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:780px}
+.tall-pair{display:grid;grid-template-columns:.892fr 1fr;gap:16px;align-items:start;margin-top:0}
+.strip3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.strip3 img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.strip3.natural{align-items:end}.strip3.natural img{aspect-ratio:auto}
+
+.stage{background-size:cover;background-position:center;padding:clamp(24px,5vw,64px) clamp(24px,10vw,140px)}
+.stage img{box-shadow:none;filter:drop-shadow(0 24px 30px rgba(0,0,0,.45))}
+
+.recasts{list-style:none;margin:clamp(48px,6vw,80px) 0 0;padding:0;display:grid;gap:clamp(28px,4vw,48px)}
+.recast{display:grid;grid-template-columns:minmax(0,1.25fr) 110px minmax(0,1fr);align-items:center;gap:22px}
+.from{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:20px}
+.from .round{border-radius:50%;aspect-ratio:1;object-fit:cover}
+.arrow{width:100%;height:auto;overflow:visible}
+.arrow path{fill:none;stroke:var(--celadon);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.to img{width:auto;max-width:100%;max-height:420px;margin:0 auto;box-shadow:0 24px 48px -26px rgba(20,18,15,.6)}
+
+.process{list-style:none;margin:clamp(56px,7vw,96px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 18px;counter-reset:none}
+.process img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.process figcaption{color:var(--bisque);font-family:var(--body);font-size:15px;line-height:1.5}
+
+footer{margin-top:clamp(100px,12vw,170px);border-top:1px solid rgba(242,239,233,.2);padding:28px 0 60px;font-family:var(--mono);font-size:13px;color:var(--ash);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{text-decoration:none}footer a:hover{color:var(--celadon)}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto;gap:40px}
+  .plate{order:-1;max-width:460px}
+  .hint{margin-top:28px}
+  .index ol{grid-template-columns:1fr 1fr}
+  .statement{grid-template-columns:1fr}.statement p{grid-column:1}
+  .process{grid-template-columns:1fr 1fr}
+  .recast{grid-template-columns:1fr 64px 1.2fr;gap:10px}
+}
+@media (max-width:560px){
+  body{font-size:17px}
+  .index ol{grid-template-columns:1fr}
+  .statement p{font-size:17.5px}
+  .duo,.pair-row{grid-template-columns:1fr}
+  .strip3,.trio-row{grid-template-columns:1fr 1fr}
+  .tall-pair{grid-template-columns:1fr}
+  .recast{grid-template-columns:1fr;justify-items:center}
+  .recast .arrow{width:72px;transform:rotate(90deg)}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<main id="top">
+<div class="wrap">
+  <section class="hero" aria-label="Ziyang Xu — Art Portfolio">
+    <div>
+      <h1 class="name"><span>Ziyang</span><span>Xu</span></h1>
+      <p class="kind">Art Portfolio · 2026</p>
+      <p class="hint" aria-live="polite" id="hint">Select a fragment to open its work.</p>
+    </div>
+    <div class="plate">
+      <svg viewBox="0 0 600 600" role="navigation" aria-label="Works">
+<a class="shard" href="#remembrance-process" data-label="Remembrance Art: Memories Recast in Clay" style="--ox:-42px;--oy:1px;--rot:-5.4deg;--hx:-7.0px;--hy:0.2px;--d:0ms"><title>Remembrance Art: Memories Recast in Clay</title><clipPath id="c0"><polygon points="360.5,350.3 273.5,360.7 203.1,298.3 278.7,240.5 349.9,251.5"/></clipPath><image href="assets/shard-steps.webp" x="203.1" y="221.9" width="157.4" height="157.4" preserveAspectRatio="xMidYMid slice" clip-path="url(#c0)"/><polygon class="edge" points="360.5,350.3 273.5,360.7 203.1,298.3 278.7,240.5 349.9,251.5"/></a>
+<a class="shard" href="#the-part-of-me-that-watches" data-label="The Part of Me That Watches" style="--ox:23px;--oy:77px;--rot:0.4deg;--hx:2.0px;--hy:6.7px;--d:55ms"><title>The Part of Me That Watches</title><clipPath id="c1"><polygon points="243.2,469.7 276.0,368.4 362.1,357.7 393.9,383.0 388.2,475.5"/></clipPath><image href="assets/shard-watches.webp" x="243.2" y="341.2" width="150.7" height="150.7" preserveAspectRatio="xMidYMid slice" clip-path="url(#c1)"/><polygon class="edge" points="243.2,469.7 276.0,368.4 362.1,357.7 393.9,383.0 388.2,475.5"/></a>
+<a class="shard" href="#here-lies-anonymous" data-label="Here Lies Anonymous" style="--ox:-67px;--oy:77px;--rot:-6.8deg;--hx:-4.6px;--hy:5.3px;--d:110ms"><title>Here Lies Anonymous</title><clipPath id="c2"><polygon points="147.5,536.0 143.0,533.2 139.7,530.8 150.1,299.7 197.6,303.1 268.1,368.5 234.9,469.7"/></clipPath><image href="assets/shard-anonymous.webp" x="85.8" y="299.7" width="236.3" height="236.3" preserveAspectRatio="xMidYMid slice" clip-path="url(#c2)"/><polygon class="edge" points="147.5,536.0 143.0,533.2 139.7,530.8 150.1,299.7 197.6,303.1 268.1,368.5 234.9,469.7"/></a>
+<a class="shard" href="#an-open-mind" data-label="An Open Mind" style="--ox:-67px;--oy:-48px;--rot:-7.2deg;--hx:-5.7px;--hy:-4.1px;--d:165ms"><title>An Open Mind</title><clipPath id="c3"><polygon points="250.5,146.7 272.5,235.2 198.3,293.2 152.0,291.0 134.0,277.5 199.7,126.6"/></clipPath><image href="assets/shard-openmind.webp" x="120.0" y="126.6" width="166.6" height="166.6" preserveAspectRatio="xMidYMid slice" clip-path="url(#c3)"/><polygon class="edge" points="250.5,146.7 272.5,235.2 198.3,293.2 152.0,291.0 134.0,277.5 199.7,126.6"/></a>
+<a class="shard" href="#when-we-shared-the-same-screen" data-label="When We Shared the Same Screen" style="--ox:24px;--oy:-79px;--rot:-3.5deg;--hx:2.0px;--hy:-6.7px;--d:220ms"><title>When We Shared the Same Screen</title><clipPath id="c4"><polygon points="397.3,195.9 352.4,243.4 281.2,232.2 257.6,144.6 388.3,93.6"/></clipPath><image href="assets/shard-screen.webp" x="252.5" y="93.6" width="149.8" height="149.8" preserveAspectRatio="xMidYMid slice" clip-path="url(#c4)"/><polygon class="edge" points="397.3,195.9 352.4,243.4 281.2,232.2 257.6,144.6 388.3,93.6"/></a>
+<a class="shard" href="#remembrance-art" data-label="Remembrance Art: Memories Recast in Clay" style="--ox:99px;--oy:-2px;--rot:-5.1deg;--hx:7.0px;--hy:-0.1px;--d:275ms"><title>Remembrance Art: Memories Recast in Clay</title><clipPath id="c5"><polygon points="581.0,299.9 580.7,309.9 401.7,377.1 368.9,350.9 358.3,250.2 405.0,201.1 580.7,291.9"/></clipPath><image href="assets/shard-remembrance.webp" x="358.3" y="177.7" width="222.7" height="222.7" preserveAspectRatio="xMidYMid slice" clip-path="url(#c5)"/><polygon class="edge" points="581.0,299.9 580.7,309.9 401.7,377.1 368.9,350.9 358.3,250.2 405.0,201.1 580.7,291.9"/></a>
+<a class="shard" href="#holding-you-together" data-label="Holding You Together" style="--ox:109px;--oy:72px;--rot:7.6deg;--hx:5.9px;--hy:3.8px;--d:330ms"><title>Holding You Together</title><clipPath id="c6"><polygon points="583.3,314.9 582.9,323.1 580.8,341.5 577.5,359.8 572.9,377.8 567.1,395.3 560.1,412.2 551.8,428.2 542.7,442.8 533.9,455.8 525.3,469.4 515.1,483.6 503.3,497.4 490.3,510.3 476.3,522.4 461.4,533.5 445.8,543.6 433.2,550.6 396.2,477.8 402.9,383.2"/></clipPath><image href="assets/shard-holding.webp" x="371.9" y="314.9" width="235.7" height="235.7" preserveAspectRatio="xMidYMid slice" clip-path="url(#c6)"/><polygon class="edge" points="583.3,314.9 582.9,323.1 580.8,341.5 577.5,359.8 572.9,377.8 567.1,395.3 560.1,412.2 551.8,428.2 542.7,442.8 533.9,455.8 525.3,469.4 515.1,483.6 503.3,497.4 490.3,510.3 476.3,522.4 461.4,533.5 445.8,543.6 433.2,550.6 396.2,477.8 402.9,383.2"/></a>
+<a class="shard" href="#patterns-between-experiment-and-imagination" data-label="Patterns Between Experiment and Imagination" style="--ox:-3px;--oy:131px;--rot:-3.7deg;--hx:-0.2px;--hy:7.0px;--d:385ms"><title>Patterns Between Experiment and Imagination</title><clipPath id="c7"><polygon points="425.2,554.8 421.5,556.7 404.4,564.1 387.0,570.3 369.1,575.3 351.0,579.0 332.9,581.3 315.1,581.9 298.7,581.2 283.5,580.9 266.7,580.6 248.8,578.6 230.8,575.1 213.0,570.2 195.5,564.1 178.5,556.7 162.0,548.2 150.8,541.4 241.6,476.7 387.6,482.5"/></clipPath><image href="assets/shard-patterns.webp" x="150.8" y="392.1" width="274.4" height="274.4" preserveAspectRatio="xMidYMid slice" clip-path="url(#c7)"/><polygon class="edge" points="425.2,554.8 421.5,556.7 404.4,564.1 387.0,570.3 369.1,575.3 351.0,579.0 332.9,581.3 315.1,581.9 298.7,581.2 283.5,580.9 266.7,580.6 248.8,578.6 230.8,575.1 213.0,570.2 195.5,564.1 178.5,556.7 162.0,548.2 150.8,541.4 241.6,476.7 387.6,482.5"/></a>
+<a class="shard" href="#a-mountain-behind-every-vase" data-label="A Mountain Behind Every Vase" style="--ox:-121px;--oy:47px;--rot:8.2deg;--hx:-6.5px;--hy:2.5px;--d:440ms"><title>A Mountain Behind Every Vase</title><clipPath id="c8"><polygon points="135.3,530.9 123.7,522.4 109.5,510.4 96.2,497.5 83.7,483.7 72.3,469.2 62.1,453.9 53.1,438.1 45.7,422.0 39.9,406.6 34.2,392.0 28.2,376.2 23.2,359.1 19.6,341.2 17.3,322.9 16.2,304.5 16.5,285.9 18.1,267.4 18.6,263.7 127.3,284.7 145.6,298.6"/></clipPath><image href="assets/shard-mountain.webp" x="-52.7" y="263.7" width="267.3" height="267.3" preserveAspectRatio="xMidYMid slice" clip-path="url(#c8)"/><polygon class="edge" points="135.3,530.9 123.7,522.4 109.5,510.4 96.2,497.5 83.7,483.7 72.3,469.2 62.1,453.9 53.1,438.1 45.7,422.0 39.9,406.6 34.2,392.0 28.2,376.2 23.2,359.1 19.6,341.2 17.3,322.9 16.2,304.5 16.5,285.9 18.1,267.4 18.6,263.7 127.3,284.7 145.6,298.6"/></a>
+<a class="shard" href="#taihu-stones" data-label="Taihu Stones and Foaming Glaze" style="--ox:-107px;--oy:-76px;--rot:-6.6deg;--hx:-5.7px;--hy:-4.1px;--d:495ms"><title>Taihu Stones and Foaming Glaze</title><clipPath id="c9"><polygon points="19.7,254.7 22.4,240.1 26.9,222.1 32.6,204.5 39.6,187.3 47.8,171.0 57.1,155.7 67.0,142.4 75.7,130.1 85.2,116.4 96.7,102.7 109.6,89.6 123.6,77.5 138.4,66.4 154.0,56.3 154.3,56.2 194.7,122.7 128.4,275.7"/></clipPath><image href="assets/shard-taihu.webp" x="-2.5" y="56.2" width="219.5" height="219.5" preserveAspectRatio="xMidYMid slice" clip-path="url(#c9)"/><polygon class="edge" points="19.7,254.7 22.4,240.1 26.9,222.1 32.6,204.5 39.6,187.3 47.8,171.0 57.1,155.7 67.0,142.4 75.7,130.1 85.2,116.4 96.7,102.7 109.6,89.6 123.6,77.5 138.4,66.4 154.0,56.3 154.3,56.2 194.7,122.7 128.4,275.7"/></a>
+<a class="shard" href="#what-holds-up-the-palace" data-label="What Holds Up the Palace" style="--ox:-6px;--oy:-131px;--rot:6.7deg;--hx:-0.3px;--hy:-7.0px;--d:550ms"><title>What Holds Up the Palace</title><clipPath id="c10"><polygon points="162.3,51.7 178.5,43.4 195.5,36.0 213.0,29.9 230.8,25.1 248.7,21.7 266.3,19.9 282.7,19.4 298.1,18.6 315.0,17.9 332.9,18.7 351.0,21.0 369.1,24.7 387.0,29.7 404.5,36.0 407.4,37.3 386.3,87.1 254.7,137.7 203.3,118.2"/></clipPath><image href="assets/shard-palace.webp" x="162.3" y="-44.7" width="245.1" height="245.1" preserveAspectRatio="xMidYMid slice" clip-path="url(#c10)"/><polygon class="edge" points="162.3,51.7 178.5,43.4 195.5,36.0 213.0,29.9 230.8,25.1 248.7,21.7 266.3,19.9 282.7,19.4 298.1,18.6 315.0,17.9 332.9,18.7 351.0,21.0 369.1,24.7 387.0,29.7 404.5,36.0 407.4,37.3 386.3,87.1 254.7,137.7 203.3,118.2"/></a>
+<a class="shard" href="#patterns-in-motion" data-label="Patterns in Motion" style="--ox:106px;--oy:-76px;--rot:6.5deg;--hx:5.7px;--hy:-4.1px;--d:605ms"><title>Patterns in Motion</title><clipPath id="c11"><polygon points="406.8,194.9 395.3,91.5 415.7,40.9 429.6,47.4 445.9,56.4 461.4,66.5 476.3,77.6 490.2,89.7 503.1,102.7 514.5,116.4 524.1,130.1 533.1,142.7 542.8,156.1 552.1,171.2 560.2,187.5 567.2,204.6 573.0,222.2 577.5,240.2 580.8,258.5 582.9,276.9 583.4,287.3"/></clipPath><image href="assets/shard-motion.webp" x="366.1" y="40.9" width="246.4" height="246.4" preserveAspectRatio="xMidYMid slice" clip-path="url(#c11)"/><polygon class="edge" points="406.8,194.9 395.3,91.5 415.7,40.9 429.6,47.4 445.9,56.4 461.4,66.5 476.3,77.6 490.2,89.7 503.1,102.7 514.5,116.4 524.1,130.1 533.1,142.7 542.8,156.1 552.1,171.2 560.2,187.5 567.2,204.6 573.0,222.2 577.5,240.2 580.8,258.5 582.9,276.9 583.4,287.3"/></a>
+      </svg>
+    </div>
+  </section>
+</div>
+<nav class="index" aria-label="All works"><div class="wrap"><ol><li><a href="#holding-you-together"><span class="t">Holding You Together</span><span class="m">Mixed Media Installation, 2026</span></a></li><li><a href="#patterns-in-motion"><span class="t">Patterns in Motion</span><span class="m">Projection Installation, 2026</span></a></li><li><a href="#a-mountain-behind-every-vase"><span class="t">A Mountain Behind Every Vase</span><span class="m">Site-specific Photographic Installation, 2026</span></a></li><li><a href="#remembrance-art"><span class="t">Remembrance Art: Memories Recast in Clay</span><span class="m">Recycled Ceramic Sculptures, 2026</span></a></li><li><a href="#taihu-stones"><span class="t">Taihu Stones and Foaming Glaze</span><span class="m">Ceramic Installation, 2026</span></a></li><li><a href="#patterns-between-experiment-and-imagination"><span class="t">Patterns Between Experiment and Imagination</span><span class="m">Experimental Ceramic Installation, 2026</span></a></li><li><a href="#here-lies-anonymous"><span class="t">Here Lies Anonymous</span><span class="m">Mixed Media Installation, 2026</span></a></li><li><a href="#what-holds-up-the-palace"><span class="t">What Holds Up the Palace</span><span class="m">Mixed Media Sculpture, 2026</span></a></li><li><a href="#when-we-shared-the-same-screen"><span class="t">When We Shared the Same Screen</span><span class="m">Mixed Media Installation, 2026</span></a></li><li><a href="#the-part-of-me-that-watches"><span class="t">The Part of Me That Watches</span><span class="m">Mixed media Installation, 2026</span></a></li><li><a href="#an-open-mind"><span class="t">An Open Mind</span><span class="m">Mixed Media Sculpture, 2026</span></a></li></ol></div></nav>
+<div class="wrap">
+<section class="work" id="holding-you-together"><header class="work-head "><p class="medium">Mixed Media Installation, 2026</p><h2>Holding You Together</h2></header>
+<figure class="plate-img"><img class="" src="assets/holding.webp" width="2000" height="1647" alt="Holding You Together" loading="lazy" decoding="async"></figure><div class="statement"><p>In this installation, I explore how war breaks families apart through the contrast between a fractured mother and an intact infant. I sculpted the mother from stone clay and covered her torso with collected porcelain shards, while shaping and firing the baby as a smooth ceramic form. The mother’s worn face and broken body contrast with the infant resting peacefully in her arms. I placed them among bricks, broken wood, and a painted backdrop to suggest a home damaged by war. Reusing discarded porcelain, I wanted the fragments to convey both the mother’s suffering and her hope to protect her child’s future.</p></div></section>
+<section class="work dark" id="patterns-in-motion"><header class="work-head "><p class="medium">Projection Installation, 2026</p><h2>Patterns in Motion</h2></header>
+<figure class="plate-img video"><video src="assets/patterns-in-motion.mp4" poster="assets/patterns-in-motion-poster.webp" muted loop playsinline preload="metadata" aria-label="Patterns in Motion" data-autoplay></video>
+<button class="vctl" type="button" aria-pressed="false">Pause</button></figure><div class="statement"><p>Inspired by questions about the boundary between motion and stillness, I created this multimedia installation to explore how surface patterns change our perception of ceramic form. Using generative AI, I animated traditional motifs and projected them onto two unglazed bisque vases and a large plate. Chrysanthemums bloom, cranes take flight, and dragon motifs transform across their surfaces. The vessels remain still, while the projected patterns continually change their appearance. By replacing permanent decoration with moving light, I wanted to give familiar cultural imagery a sense of time and movement, exploring how ceramic surfaces can carry images that are never fixed.</p></div></section>
+<section class="work" id="a-mountain-behind-every-vase"><header class="work-head "><p class="medium">Site-specific Photographic Installation, 2026</p><h2>A Mountain Behind Every Vase</h2></header>
+<figure class="plate-img"><img class="" src="assets/mountain.webp" width="2000" height="1353" alt="A Mountain Behind Every Vase" loading="lazy" decoding="async"></figure><div class="statement"><p>This site-specific installation explores the environmental cost of porcelain production in Jingdezhen. After visiting 20 local handcraft workshops and industrial factories, I photographed a mountain of ceramic waste and installed large prints in the warehouse of a factory selling porcelain. I placed the images directly behind finished vases, bringing discarded fragments and polished products into the same display. From a distance, the waste appears almost like another pattern among the ceramics; closer inspection reveals a landscape of broken pieces. I wanted to draw attention to what lies beyond a vase as a commodity: the environmental cost of the industry behind it.</p></div>
+<figure class="pair"><div class="pair-row"><img class="" src="assets/mountain-waste-1.webp" width="800" height="450" alt="Mountains of Ceramic Waste" loading="lazy" decoding="async"><img class="" src="assets/mountain-waste-2.webp" width="900" height="1600" alt="Mountains of Ceramic Waste" loading="lazy" decoding="async"></div>
+<figcaption>Mountains of Ceramic Waste</figcaption></figure></section>
+<section class="work" id="remembrance-art"><header class="work-head "><p class="medium">Recycled Ceramic Sculptures, 2026</p><h2>Remembrance Art: Memories Recast in Clay</h2></header><div class="statement"><p>“Remembrance Art” is a public art initiative in which I transformed broken ceramic keepsakes into personal memorials. Through interviews with family, friends, and teachers, I collected objects and their stories, including my late grandmother’s bowl, a teacher’s family relic, and a lost cat’s dish. After testing more than 300 pieces, I developed a recycled clay recipe containing up to 10% pulverized porcelain. Using this material, I sculpted three memorials: Flowing Apple, Feather Bowl, and Cat’s Pawprint. By incorporating fragments of treasured objects into new forms, I wanted to preserve a physical connection to what had been lost and explore how materials can carry memory through transformation.</p></div>
+<ul class="recasts"><li class="recast"><div class="from"><img class="round" src="assets/keepsake-photo-1.webp" width="797" height="800" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"><img class="bowl" src="assets/keepsake-bowl-1.webp" width="1599" height="1066" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"></div><svg class="arrow" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 22 C 40 6, 76 34, 112 18" /><path d="M100 10 L113 18 L101 27"/></svg><div class="to"><img class="" src="assets/apple.webp" width="1600" height="1200" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"></div></li><li class="recast"><div class="from"><img class="round" src="assets/keepsake-photo-2.webp" width="799" height="798" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"><img class="bowl" src="assets/keepsake-bowl-2.webp" width="799" height="533" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"></div><svg class="arrow" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 22 C 40 6, 76 34, 112 18" /><path d="M100 10 L113 18 L101 27"/></svg><div class="to"><img class="" src="assets/feather-bowl.webp" width="2000" height="1500" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"></div></li><li class="recast"><div class="from"><img class="round" src="assets/keepsake-photo-3.webp" width="797" height="800" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"><img class="bowl" src="assets/keepsake-bowl-3.webp" width="1440" height="960" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"></div><svg class="arrow" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 22 C 40 6, 76 34, 112 18" /><path d="M100 10 L113 18 L101 27"/></svg><div class="to"><img class="" src="assets/cat-pawprint.webp" width="1199" height="1599" alt="Remembrance Art: Memories Recast in Clay" loading="lazy" decoding="async"></div></li></ul>
+<ol class="process" id="remembrance-process"><li><figure><img class="" src="assets/step-1.webp" width="1599" height="1066" alt="Step 1: Collect Ceramic Keepsakes." loading="lazy" decoding="async"><figcaption>Step 1: Collect Ceramic Keepsakes.</figcaption></figure></li><li><figure><img class="" src="assets/step-2.webp" width="1440" height="810" alt="Step 2: Grind the ceramic fragments into powder." loading="lazy" decoding="async"><figcaption>Step 2: Grind the ceramic fragments into powder.</figcaption></figure></li><li><figure><img class="" src="assets/step-3.webp" width="1440" height="810" alt="Step 3: Sift the powder to remove larger particles." loading="lazy" decoding="async"><figcaption>Step 3: Sift the powder to remove larger particles.</figcaption></figure></li><li><figure><img class="" src="assets/step-4.webp" width="1599" height="1066" alt="Step 4: Prepare the fine porcelain powder for mixing with clay." loading="lazy" decoding="async"><figcaption>Step 4: Prepare the fine porcelain powder for mixing with clay.</figcaption></figure></li><li><figure><img class="" src="assets/step-5.webp" width="900" height="1600" alt="Step 5: Make and fire test tiles with different proportions of porcelain powder." loading="lazy" decoding="async"><figcaption>Step 5: Make and fire test tiles with different proportions of porcelain powder.</figcaption></figure></li><li><figure><img class="" src="assets/step-6.webp" width="1600" height="1066" alt="Step 6: Compare the fired samples and refine a recycled clay recipe containing up to 10% porcelain powder." loading="lazy" decoding="async"><figcaption>Step 6: Compare the fired samples and refine a recycled clay recipe containing up to 10% porcelain powder.</figcaption></figure></li><li><figure><img class="" src="assets/step-7.webp" width="1600" height="1200" alt="Step 7: Sculpt personal memorials using the recycled clay." loading="lazy" decoding="async"><figcaption>Step 7: Sculpt personal memorials using the recycled clay.</figcaption></figure></li><li><figure><img class="" src="assets/step-8.webp" width="1600" height="1200" alt="Step 8: Glaze, fire, and assemble the final work, giving treasured objects a new form！" loading="lazy" decoding="async"><figcaption>Step 8: Glaze, fire, and assemble the final work, giving treasured objects a new form！</figcaption></figure></li></ol></section>
+<section class="work" id="taihu-stones"><header class="work-head "><p class="medium">Ceramic Installation, 2026</p><h2>Taihu Stones and Foaming Glaze</h2></header>
+<figure class="plate-img"><img class="" src="assets/taihu.webp" width="2000" height="1500" alt="Taihu Stones and Foaming Glaze" loading="lazy" decoding="async"></figure><div class="statement"><p>In this project, I used physics experiments to develop specialized foaming glazes that reinterpret traditional Chinese aesthetics. When I added silicon carbide and calcite to the glazes, expanding gases produced cratered, porous surfaces on test tiles fired at 1180°C. These gases form bubbles within the molten glaze, leaving cavities as the glaze cools and solidifies. Realizing that these volcanic textures resembled porous Taihu stones of classical gardens, I sculpted abstract ceramic stones and coated them in foaming glaze. Staged on mirrors that evoke reflections in a garden pond, the installation connects material science with classical landscape design in a contemporary voice.</p></div>
+<div class="duo"><figure class=""><img class="" src="assets/taihu-inspiration.webp" width="533" height="799" alt="My Inspiration: Taihu Stones in Chinese Gardens" loading="lazy" decoding="async"><figcaption>My Inspiration: Taihu Stones in Chinese Gardens</figcaption></figure><figure class=""><img class="" src="assets/taihu-tiles.webp" width="1600" height="1202" alt="The ceramic test tiles I made to explore different foaming glaze effects." loading="lazy" decoding="async"><figcaption>The ceramic test tiles I made to explore different foaming glaze effects.</figcaption></figure></div></section>
+<section class="work" id="patterns-between-experiment-and-imagination"><header class="work-head "><p class="medium">Experimental Ceramic Installation, 2026</p><h2>Patterns Between Experiment and Imagination</h2></header>
+<figure class="plate-img"><img class="" src="assets/patterns.webp" width="2000" height="1500" alt="Patterns Between Experiment and Imagination" loading="lazy" decoding="async"></figure><div class="statement"><p>During my residency in Jingdezhen, I conducted experimental glaze studies to explore connections between physics and ceramic art. I tested three dilution ratios of tobacco extract combined with eight raw mineral powders, applying the mixtures to sixteen 10 × 10 cm clay tiles fired at 1180°C. The resulting surfaces revealed branching lines, spreading colors, and clustered forms that reminded me of cells and cosmic structures. I paired these glaze experiments with AI-generated imagery, bringing material processes into dialogue with imagined worlds. Through this series, I wanted to explore how observation and imagination influence the way I interpret patterns.</p></div>
+<figure class="trio"><div class="trio-row"><img class="" src="assets/testing-1.webp" width="600" height="800" alt="My Testing Process" loading="lazy" decoding="async"><img class="" src="assets/testing-2.webp" width="600" height="800" alt="My Testing Process" loading="lazy" decoding="async"><img class="" src="assets/testing-3.webp" width="600" height="800" alt="My Testing Process" loading="lazy" decoding="async"></div>
+<figcaption>My Testing Process</figcaption></figure></section>
+<section class="work" id="here-lies-anonymous"><header class="work-head "><p class="medium">Mixed Media Installation, 2026</p><h2>Here Lies Anonymous</h2></header>
+<div class="tall-pair"><img class="" src="assets/anonymous-tomb.webp" width="720" height="1076" alt="Here Lies Anonymous" loading="lazy" decoding="async"><img class="" src="assets/anonymous-saggars.webp" width="1080" height="1440" alt="Here Lies Anonymous" loading="lazy" decoding="async"></div><div class="statement"><p>I created this site-specific installation to honor generations of unnamed ceramic artisans. At an abandoned Song dynasty kiln site near Bajiaojing in Jingdezhen, I placed a foam-board tombstone among discarded saggars, the containers that protected porcelain from ash and flames during firing. Like the artisans who used them, the saggars were left behind while the finished porcelain was valued. Beneath the inscription “Here Lies Anonymous,” I embedded a bisque piece, a decorated porcelain tile, and a saggar fragment. These materials represent different stages of making porcelain and commemorate the craftsmen whose skills and devotion gave porcelain its soul, though their names were rarely recorded.</p></div>
+<div class="strip3"><figure class=""><img class="" src="assets/anonymous-kiln.webp" width="735" height="1026" alt="Saggars were used to protect ceramics from ash during firing and allow efficient stacking inside the kiln." loading="lazy" decoding="async"><figcaption>Saggars were used to protect ceramics from ash during firing and allow efficient stacking inside the kiln.</figcaption></figure><figure class=""><img class="" src="assets/anonymous-bowl.webp" width="735" height="850" alt="Here Lies Anonymous" loading="lazy" decoding="async"></figure><figure class=""><img class="" src="assets/anonymous-site.webp" width="735" height="1026" alt="Discarded Ancient Saggars in Jingdezhen" loading="lazy" decoding="async"><figcaption>Discarded Ancient Saggars in Jingdezhen</figcaption></figure></div></section>
+<section class="work" id="what-holds-up-the-palace"><header class="work-head "><p class="medium">Mixed Media Sculpture, 2026</p><h2>What Holds Up the Palace</h2></header>
+<figure class="plate-img"><img class="" src="assets/palace.webp" width="2000" height="1501" alt="What Holds Up the Palace" loading="lazy" decoding="async"></figure><div class="statement"><p>This sculpture examines how ancient ceramic artisans’ labor was exploited and hidden behind imperial splendor. I modeled the glazed roof after the Forbidden City’s Hall of Supreme Harmony, placing it on pillars made from color-glazed and blue-and-white porcelain vessels. A weathered wooden potter’s wheel supports the entire structure. The roof draws the eye with its grandeur, while accidental firing defects interrupt its polished appearance. By making the palace depend on the vessels and wheel beneath it, I wanted to honor the artisans whose work sustained imperial luxury, even as their names were left out of its history.</p></div></section>
+<section class="work" id="when-we-shared-the-same-screen"><header class="work-head "><p class="medium">Mixed Media Installation, 2026</p><h2>When We Shared the Same Screen</h2></header>
+<figure class="plate-img stage" style="background-image:url(assets/screen-backdrop.webp)"><img class="" src="assets/screen-tv.webp" width="2000" height="1500" alt="When We Shared the Same Screen" loading="lazy" decoding="async"></figure><div class="statement"><p>My childhood memories of Lunar New Year reunions inspired this mixed-media installation. Sharing potato chips with family while watching television gave me a sense of comfort and belonging. As we moved to different cities, those moments became less frequent. I hollowed out an old television and rebuilt a room inside it, using wooden furniture, PVC-printed backdrops, and ceramic chips and snack bags that I sculpted and glazed. The oversized snacks fill the small room, reflecting how an ordinary detail can grow larger in memory. Through the television frame, viewers look into a family gathering that I can revisit but cannot fully recreate.</p></div></section>
+<section class="work" id="the-part-of-me-that-watches"><header class="work-head "><p class="medium">Mixed media Installation, 2026</p><h2>The Part of Me That Watches</h2></header>
+<figure class="plate-img"><img class="" src="assets/watches.webp" width="2000" height="1500" alt="The Part of Me That Watches" loading="lazy" decoding="async"></figure><div class="statement"><p>This installation explores psychological dissociation and the distance I sometimes feel from my own emotions. When I am in pain, I imagine two versions of myself: one struggles with the feeling, while the other urges me to stop feeling and do something practical. I represented them as a realistic ceramic self-portrait head and a curled wax figure that slowly burns and melts. Red threads stretch between them, suggesting a barrier of willful blindness. In the video documenting the melting, the ceramic face appears unmoved. I wanted to show how trying to protect myself from pain can also leave me indifferent to it.</p></div>
+<div class="strip3 natural"><figure class=""><img class="" src="assets/watches-2.webp" width="1599" height="1066" alt="The Part of Me That Watches" loading="lazy" decoding="async"></figure><figure class=""><img class="" src="assets/watches-3.webp" width="1599" height="1066" alt="The Part of Me That Watches" loading="lazy" decoding="async"></figure><figure class=""><img class="" src="assets/watches-4.webp" width="1240" height="1599" alt="The Part of Me That Watches" loading="lazy" decoding="async"></figure></div></section>
+<section class="work" id="an-open-mind"><header class="work-head "><p class="medium">Mixed Media Sculpture, 2026</p><h2>An Open Mind</h2></header>
+<figure class="plate-img"><img class="" src="assets/open-mind.webp" width="2000" height="1500" alt="An Open Mind" loading="lazy" decoding="async"></figure><div class="statement"><p>This surrealist sculpture explores how physics and art shape my identity. My physics research has trained me to think through experiments, while painting and sculpture, which I have practiced since childhood, have given me space to imagine. I sculpted a clay self-portrait bust with an open head, using wires to extend light bulbs, a palette, brushes, and other objects beyond its surface. Although science and art begin on different sides, the wires cross and become tangled. Through this arrangement, I wanted to show how these two ways of thinking have jointly shaped me, even when they pull in different directions.</p></div></section>
+<footer><span>Ziyang Xu — Art Portfolio · 2026</span><a href="#top" onclick="window.scrollTo({top:0});return false">Back to top</a></footer>
+</div>
+</main>
+<script>
+(function(){
+  var hint=document.getElementById('hint'), base=hint.textContent;
+  document.querySelectorAll('.shard').forEach(function(s){
+    var show=function(){hint.innerHTML='<b></b>';hint.firstChild.textContent=s.dataset.label;};
+    var hide=function(){hint.textContent=base;};
+    s.addEventListener('mouseenter',show);s.addEventListener('focus',show);
+    s.addEventListener('mouseleave',hide);s.addEventListener('blur',hide);
+  });
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('video[data-autoplay]').forEach(function(v){
+    var btn=v.parentNode.querySelector('.vctl');
+    function sync(){btn.textContent=v.paused?'Play':'Pause';btn.setAttribute('aria-pressed',v.paused?'true':'false');}
+    btn.addEventListener('click',function(){v.paused?v.play():v.pause();});
+    v.addEventListener('play',sync);v.addEventListener('pause',sync);
+    if(reduce){sync();return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){v.play().catch(function(){});}else{v.pause();}});},{threshold:.35});
+    io.observe(v);
+  });
+})();
+</script>
+</body>
+</html>
